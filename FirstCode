@@ -1,0 +1,64 @@
+#include <iostream>
+#include <stdio.h>
+#include <math.h>
+
+int main()
+{
+    float ratioSF, ratioFS, vSml, vFml, mf, ms;
+    int chosen1, chosen2;
+
+    //ratio Vs/Vf
+    ratioSF = 0.82;
+    //ratio Vf/Vs
+    ratioFS = 1.22;
+    printf("Please choose what you need to convert:\n 1. Mass of sugar\n 2. Mass of flour \n");
+    printf("Your answer:");
+    scanf("%d", &chosen1);
+
+    switch(chosen1)
+    {
+        //mass of sugar
+        case 1:
+            printf("Now choose what you would like to have it converted to:\n 1. milliliters\n 2. the ratio between the volume of sugar and the volume of flour\n");
+            scanf("%d", &chosen2);
+            switch(chosen2)
+            {
+                //sugar mass into milliliters
+                case 1:
+                    printf("Enter the mass of sugar in grams:");
+                    scanf("%f", &ms);
+                    vSml = 1.118*ms - 1.0667;
+                    printf("Here you go! Your sugar in milliliters: %f\n", vSml);
+                    break;
+                //sugar mass into flour volume
+                case 2:
+                    printf("It's +/- %f of the volume of the same amount of grams of flour", ratioSF, ms);
+                    break;
+                default: printf("Wrong number! Read carefully"); break;
+            }
+            break;
+        //mass of flour
+        case 2:
+            printf("Now choose what you would like to have it converted to:\n 1. milliliters\n 2. the ratio between the volume of flour and the volume of sugar\n");
+            printf("Your answer:");
+            scanf("%d", &chosen2);
+            switch(chosen2)
+            {
+                //flour mass into ml
+                case 1:
+                    printf("Enter the mass of flour:");
+                    scanf("%f", &mf);
+                    vFml = 1.3825*mf - 13.767;
+                    printf("Here you go! Your flour in milliliters: %f\n", vFml);
+                    break;
+                //flour mass into volume sugar
+                case 2:
+                    printf("It's %f of the volume of the sugar", ratioFS);
+                    break;
+                default: printf("Something went wrong, try once again"); break;
+            }
+            break;
+    }
+
+    return 0;
+}
